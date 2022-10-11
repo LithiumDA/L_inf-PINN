@@ -1,0 +1,3 @@
+torch
+hydra-core==1.1.2
+tensorboard

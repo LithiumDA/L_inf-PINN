@@ -1,0 +1,9 @@
+task: hjb
+
+log_path: ../log
+defaults:
+  - hjb: default
+
+hydra:
+  run:
+    dir: ${log_path}/${now:%Y-%m-%d-%H-%M-%S}/

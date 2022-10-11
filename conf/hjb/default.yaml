@@ -1,0 +1,35 @@
+seed: 1234
+gpu_cnt: 1
+equation:
+  mu: 1.0
+  T: 1.0
+  x_dim: 250
+model: 
+  g_type: mlp
+  derivative: pinn
+  sample_cnt: -1 # required for gt derivative
+  width: 4096
+  depth: 4
+train:
+  iteration: 10000
+  batch:
+    domain_size: 50
+    boundary_size: 50
+  loss:
+    domain: 1
+    boundary: 20
+  adversarial: 
+    domain_is_adv: 1
+    boundary_is_adv: 1
+    grad_step_cnt: 20
+    grad_step_size: 0.05
+  lr: 7e-4
+  scheduler:
+    name: linear # const, linear or step
+    step_size: -1 # required for step LR scheduler
+    gamma: 0.5
+    warm_up_steps: 0
+test:
+  step: 100 # evaluate every x epochs
+  batch_size: 1000
+  data_path: '../../L_inf-PINN/src/data/hjb_250_grad.pkl'
