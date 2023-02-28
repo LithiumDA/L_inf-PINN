@@ -17,8 +17,8 @@ class HJBDataset():
         )
         
         boundary_X = torch.concat(
-            [torch.randn((self.domain_bsz, self.xdim), device=self.rank), # x ~ N(0,1)
-             torch.ones((self.domain_bsz, 1), device=self.rank)*self.T, # t = T
+            [torch.randn((self.bound_bsz, self.xdim), device=self.rank), # x ~ N(0,1)
+             torch.ones((self.bound_bsz, 1), device=self.rank)*self.T, # t = T
             ],
             dim=1
         )
